@@ -14,6 +14,7 @@ import AllPost from "./Pages/AllPost.jsx"
 import EditPosts from './Pages/EditPosts'
 import Post from './Pages/Post.jsx'
 import AddPost from './Pages/AddPost.jsx'
+import PostForm from './Components/PostForm/PostForm.jsx'
 /*
 const router =createBrowserRouter(
   createRoutesFromElements(
