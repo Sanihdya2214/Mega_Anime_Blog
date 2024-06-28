@@ -41,13 +41,14 @@ function Header() {
   return (
     <header className="py-3 shadow bg-gradient-to-r from-blue-500 to-purple-500">
       <Container>
-        <nav className="flex items-center">
-          <div className="mr-4">
+        <nav className="flex items-center justify-between">
+          <div className="flex items-center">
             <Link to="/">
               <Logo width="100px" />
             </Link>
+            <h1 className="text-white text-2xl font-bold ml-4">Anime-Blog</h1>
           </div>
-          <ul className="flex ml-auto space-x-4">
+          <ul className="flex items-center space-x-4">
             {navItems.map(
               (item) =>
                 item.active && (
