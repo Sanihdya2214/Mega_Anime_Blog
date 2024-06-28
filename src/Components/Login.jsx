@@ -11,7 +11,7 @@ import Logo from './Logo'
 function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit,formState:{isSubmitting} } = useForm()
     const [error, setError] = useState("")
 
     const Login = async (data) => {
@@ -29,6 +29,13 @@ function Login() {
     }
 
     return (
+        <>
+        
+        {isSubmitting && (
+                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
+                    <div className="text-white text-2xl">Loading...</div>
+                </div>
+            )}
         <div className='flex items-center justify-center min-h-screen bg-gray-700'>
             <div className='mx-auto w-full max-w-md bg-gray-800 text-white rounded-xl p-10 shadow-lg'>
                 <div className="mb-4 flex justify-center">
@@ -68,13 +75,14 @@ function Login() {
                             placeholder='Enter Your Password'
                             {...register("password", { required: true })}
                         />
-                        <Button type="submit" className='w-full bg-blue-500 hover:bg-blue-600 text-white'>
+                        <Button disabled={isSubmitting} type="submit" className='w-full bg-blue-500 hover:bg-blue-600 text-white'>
                             Sign In
                         </Button>
                     </div>
                 </form>
             </div>
         </div>
+        </>
     )
 }
 

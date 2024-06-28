@@ -9,11 +9,11 @@ import { Outlet } from 'react-router-dom'
 
 function App() {
   const [loading, setLoading] = useState(true)
-  const [key, setKey] = useState(0)
+  
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setKey(prevKey => prevKey + 1)
+   
     authService.getCurrentUser()
       .then((userData) => {
         if (userData) {
@@ -29,7 +29,7 @@ function App() {
     <div className='min-h-screen flex flex-col justify-between bg-gray-900 text-white'>
       <Header />
       <main className='flex-grow'>
-        <Outlet key={key} />
+        <Outlet  />
       </main>
       <Footer />
     </div>
